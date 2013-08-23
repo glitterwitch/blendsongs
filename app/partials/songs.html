@@ -1,0 +1,27 @@
+<div class="songs">
+  <h1>Top 1000 Songs</h1>
+  <p>The Guardian's <a href="http://www.theguardian.com/music/series/1000-songs-everyone-must-hear">1000 Songs Everyone Must Hear</a>.</p>
+
+  <div ng-show="loading" class="progress progress-striped active">
+    <div class="bar" style="width: 100%;"></div>
+  </div>
+  
+  <table ng-show="songs" class="songs table table-striped">
+    <thead>
+      <tr>
+        <th>Artist</th>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Theme</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="song" ng-repeat="song in songs | filter: query | orderBy:'year':false">
+        <td>{{ song.artist }}</td>
+        <td>{{ song.title }}</td>
+        <td>{{ song.year }}</td>
+        <td>{{ song.theme }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
