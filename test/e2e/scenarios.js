@@ -25,5 +25,15 @@ describe('my app', function() {
         toMatch(/Top 1000 Songs/);
     });
 
+    it('should filter the song list as the user types into the filter box', function() {
+      expect(repeater('.songs .song').count()).toBe(863);
+
+      input('query').enter('beatles');
+      expect(repeater('.songs .song').count()).toBe(17);
+
+      input('query').enter('stones');
+      expect(repeater('.songs .song').count()).toBe(6);
+    });
+
   });
 });
