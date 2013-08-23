@@ -4,6 +4,10 @@
   right: 0;
 }
 
+.navbar-form {
+  float: right;
+}
+
 .content {
   margin-top: 62px;
 }
