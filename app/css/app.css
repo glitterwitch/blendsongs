@@ -18,3 +18,7 @@
 .sortable {
   cursor: pointer;
 }
+
+.sortable.sorted {
+  background: yellow;
+}
