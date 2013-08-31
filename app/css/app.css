@@ -11,3 +11,10 @@
 .content {
   margin-top: 62px;
 }
+
+/*
+ * Song List
+ */
+.sortable {
+  cursor: pointer;
+}

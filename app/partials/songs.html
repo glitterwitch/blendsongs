@@ -9,14 +9,14 @@
   <table ng-show="songs" class="songs table table-striped">
     <thead>
       <tr>
-        <th>Artist</th>
-        <th>Title</th>
-        <th>Year</th>
-        <th>Theme</th>
+        <th ng-click="orderSongs('artist')" class="sortable">Artist</th>
+        <th ng-click="orderSongs('title')" class="sortable">Title</th>
+        <th ng-click="orderSongs('year')" class="sortable">Year</th>
+        <th ng-click="orderSongs('theme')" class="sortable">Theme</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="song" ng-repeat="song in songs | filter: query | orderBy:'year':false">
+      <tr class="song" ng-repeat="song in songs | filter: query | orderBy:orderProp:reverse">
         <td>{{ song.artist }}</td>
         <td>{{ song.title }}</td>
         <td>{{ song.year }}</td>
