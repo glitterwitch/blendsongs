@@ -9,10 +9,10 @@
   <table ng-show="songs" class="songs table table-striped">
     <thead>
       <tr>
-        <th ng-click="orderSongs('artist')" class="sortable" ng-class="{sorted: orderProp == 'artist'}">Artist</th>
-        <th ng-click="orderSongs('title')" class="sortable" ng-class="{sorted: orderProp == 'title'}">Title</th>
-        <th ng-click="orderSongs('year')" class="sortable" ng-class="{sorted: orderProp == 'year'}">Year</th>
-        <th ng-click="orderSongs('theme')" class="sortable" ng-class="{sorted: orderProp == 'theme'}">Theme</th>
+        <th ng-click="orderSongs('artist')" class="sortable artist" ng-class="{sorted: orderProp == 'artist'}">Artist</th>
+        <th ng-click="orderSongs('title')" class="sortable title" ng-class="{sorted: orderProp == 'title'}">Title</th>
+        <th ng-click="orderSongs('year')" class="sortable year" ng-class="{sorted: orderProp == 'year'}">Year</th>
+        <th ng-click="orderSongs('theme')" class="sortable theme" ng-class="{sorted: orderProp == 'theme'}">Theme</th>
       </tr>
     </thead>
     <tbody>
