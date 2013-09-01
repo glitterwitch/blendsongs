@@ -5,11 +5,11 @@
 angular.module('myApp.controllers', []).
   controller('SongCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.loading = true;
+    $scope.orderProp = 'year';
+    $scope.reverse = false;
 
     $http.get('data/songs.json').success(function(data) {
       $scope.songs = data;
-      $scope.orderProp = 'year';
-      $scope.reverse = false;
     }).then(function() {
       $scope.loading = false;
     });

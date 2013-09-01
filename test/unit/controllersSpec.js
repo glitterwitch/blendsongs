@@ -24,5 +24,13 @@ describe('controllers', function(){
       expect(scope.songs).toEqual([{title: 'The Look of Love'}, {title: 'The Shining'}]);
       expect(scope.songs.length).toEqual(2);
     });
+
+    it('should sort by year as the default', function() {
+      expect(scope.orderProp).toBe('year');
+    });
+
+    it('should not reverse the sort by default', function() {
+      expect(scope.reverse).toBe(false);
+    });
   });
 });
