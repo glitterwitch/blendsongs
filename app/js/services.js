@@ -2,4 +2,4 @@
 
 /* Services */
 angular.module('myApp.services', []).
-  value('fireBaseURL', 'http://blendsongs.firebaseio.com/');
+  value('fireBaseURL', 'https://blendsongs.firebaseio.com/');

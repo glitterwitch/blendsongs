@@ -8,9 +8,9 @@ angular.module('myApp.controllers', []).
     $scope.orderProp = 'year';
     $scope.reverse = false;
 
-    var fireBase = new Firebase($fireBaseURL);
+    var firebase = new Firebase($fireBaseURL);
 
-    $scope.songs = $songRetriever(fireBase, $scope, 'songs').then(function() {
+    $scope.songs = $songRetriever(firebase, $scope, 'songs').then(function() {
       $scope.loading = false;
     });
 
@@ -35,4 +35,12 @@ angular.module('myApp.controllers', []).
       return $scope.reverse = false;
     }
 
+  }]).
+  controller('SongAddCtrl', ['$scope', 'angularFire', 'fireBaseURL', function($scope, $songRetriever, $fireBaseURL) {
+    var firebase = new Firebase($fireBaseURL);
+    $scope.songs = $songRetriever(firebase, $scope, 'songs');
+
+    $scope.addSong = function(data) {
+      $scope.songs.push(data);
+    }
   }]);

@@ -4,9 +4,6 @@
 
 describe('controllers', function(){
   beforeEach(module('myApp.controllers'));
-  beforeEach(module('firebase'));
-  beforeEach(module('angularFire'));
-
 
   describe('SongCtrl', function() {
     var scope, ctrl, $httpBackend;

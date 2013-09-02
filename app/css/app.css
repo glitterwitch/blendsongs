@@ -22,3 +22,15 @@
 .sortable.sorted {
   background: yellow;
 }
+
+/**
+* Form Styles
+*/
+
+.form-group .ng-invalid.ng-dirty {
+  border: 1px solid red;
+}
+
+.form-group .ng-valid.ng-dirty {
+  border: 1px solid green;
+}

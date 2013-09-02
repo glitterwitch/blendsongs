@@ -5,5 +5,6 @@
 angular.module('myApp', ['myApp.filters', 'myApp.directives', 'myApp.controllers', 'myApp.services', 'firebase']).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/songs', {templateUrl: 'partials/songs.html', controller: 'SongCtrl'});
+    $routeProvider.when('/songs/add', {templateUrl: 'partials/song-add.html', controller: 'SongAddCtrl'});
     $routeProvider.otherwise({redirectTo: '/songs'});
   }]);
