@@ -8,6 +8,16 @@ describe('controllers', function(){
   describe('SongCtrl', function() {
     var scope, ctrl, $httpBackend;
 
+    beforeEach(function() {
+      this.addMatchers({
+        toEqualData: function(expected) {
+          return angular.equals(this.actual, expected);
+        }
+      });
+    });
+
+    beforeEach(module('songListServices'));
+
     beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
       $httpBackend = _$httpBackend_;
       $httpBackend.expectGET('data/songs.json').
@@ -21,7 +31,7 @@ describe('controllers', function(){
       expect(scope.songs).toBeUndefined();
       $httpBackend.flush();
 
-      expect(scope.songs).toEqual([{title: 'The Look of Love'}, {title: 'The Shining'}]);
+      expect(scope.songs).toEqualData([{title: 'The Look of Love'}, {title: 'The Shining'}]);
       expect(scope.songs.length).toEqual(2);
     });
 
