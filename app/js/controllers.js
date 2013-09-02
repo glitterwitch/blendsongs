@@ -3,12 +3,12 @@
 /* Controllers */
 
 angular.module('myApp.controllers', []).
-  controller('SongCtrl', ['$scope', 'angularFire', function($scope, $songRetriever) {
+  controller('SongCtrl', ['$scope', 'angularFire', 'fireBaseURL', function($scope, $songRetriever, $fireBaseURL) {
     $scope.loading = true;
     $scope.orderProp = 'year';
     $scope.reverse = false;
 
-    var fireBase = new Firebase('http://blendsongs.firebaseio.com');
+    var fireBase = new Firebase($fireBaseURL);
 
     $scope.songs = $songRetriever(fireBase, $scope, 'songs').then(function() {
       $scope.loading = false;
