@@ -3,14 +3,13 @@
 /* Controllers */
 
 angular.module('myApp.controllers', []).
-  controller('SongCtrl', ['$scope', '$http', function($scope, $http) {
+  controller('SongCtrl', ['$scope', 'SongList', function($scope, $songRetriever) {
     $scope.loading = true;
     $scope.orderProp = 'year';
     $scope.reverse = false;
 
-    $http.get('data/songs.json').success(function(data) {
-      $scope.songs = data;
-    }).then(function() {
+    $songRetriever.query(function(songs) {
+      $scope.songs = songs;
       $scope.loading = false;
     });
 

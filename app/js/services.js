@@ -1,9 +1,11 @@
 'use strict';
 
 /* Services */
+angular.module('myApp.services', []);
 
-
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1');
+angular.module('songListServices', ['ngResource']).
+    factory('SongList', function($resource) {
+      return $resource('data/songs.json', {}, {
+        query: {method:'GET', cache: true, isArray:true}
+    });
+});
