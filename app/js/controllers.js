@@ -40,7 +40,24 @@ angular.module('myApp.controllers', []).
     var firebase = new Firebase($fireBaseURL);
     $scope.songs = $songRetriever(firebase, $scope, 'songs');
 
+    $scope.formChange = function() {
+      if ($scope.success) {
+        $scope.success = false;
+      }
+    };
+
     $scope.addSong = function(data) {
+      data.year = parseInt(data.year, 10); // Convert year to int so sorting will work properly.
       $scope.songs.push(data);
+
+      // Reset the form
+      $scope.song = angular.copy({
+        title: null,
+        artist: null,
+        year: null,
+        theme: null
+      });
+
+      $scope.success = true;
     }
   }]);
