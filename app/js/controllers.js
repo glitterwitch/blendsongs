@@ -5,8 +5,8 @@
 angular.module('myApp.controllers', []).
   controller('SongCtrl', ['$scope', 'angularFire', 'fireBaseURL', '$location', function($scope, $songRetriever, $fireBaseURL, $location) {
     $scope.loading = true;
-    $scope.orderProp = 'year';
-    $scope.reverse = false;
+    $scope.orderProp = 'dateCreated';
+    $scope.reverse = true;
 
     var firebase = new Firebase($fireBaseURL);
 
@@ -52,6 +52,7 @@ angular.module('myApp.controllers', []).
 
     $scope.addSong = function(data) {
       data.year = parseInt(data.year, 10); // Convert year to int so sorting will work properly.
+      data.dateCreated = new Date().getTime(); // Add a timestamp
       $scope.songs.push(data);
 
       // Reset the form
