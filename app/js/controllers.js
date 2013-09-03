@@ -3,14 +3,14 @@
 /* Controllers */
 
 angular.module('myApp.controllers', []).
-  controller('SongCtrl', ['$scope', 'angularFire', 'fireBaseURL', function($scope, $songRetriever, $fireBaseURL) {
+  controller('SongCtrl', ['$scope', 'angularFire', 'fireBaseURL', '$location', function($scope, $songRetriever, $fireBaseURL, $location) {
     $scope.loading = true;
     $scope.orderProp = 'year';
     $scope.reverse = false;
 
     var firebase = new Firebase($fireBaseURL);
 
-    $scope.songs = $songRetriever(firebase, $scope, 'songs').then(function() {
+    $songRetriever(firebase, $scope, 'songs').then(function() {
       $scope.loading = false;
     });
 
@@ -33,6 +33,10 @@ angular.module('myApp.controllers', []).
       // Otherwise, set the new order property & sort normally.
       $scope.orderProp = field;
       return $scope.reverse = false;
+    }
+
+    $scope.routeToSong = function(index) {
+      $location.path("/songs/" + index);
     }
 
   }]).
@@ -59,5 +63,13 @@ angular.module('myApp.controllers', []).
       });
 
       $scope.success = true;
-    }
-  }]);
+    };
+  }]).
+  controller('SongViewCtrl', ['$scope', 'angularFire', 'fireBaseURL', '$routeParams', 
+    function($scope, $songRetriever, $fireBaseURL, $routeParams) {
+      var firebase = new Firebase($fireBaseURL);
+
+      $scope.songs = $songRetriever(firebase, $scope, 'songs').then(function() {
+        $scope.song = $scope.songs[$routeParams.id];
+      });
+    }]);
