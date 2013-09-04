@@ -65,12 +65,4 @@ angular.module('myApp.controllers', []).
 
       $scope.success = true;
     };
-  }]).
-  controller('SongViewCtrl', ['$scope', 'angularFire', 'fireBaseURL', '$routeParams', 
-    function($scope, $songRetriever, $fireBaseURL, $routeParams) {
-      var firebase = new Firebase($fireBaseURL);
-
-      $scope.songs = $songRetriever(firebase, $scope, 'songs').then(function() {
-        $scope.song = $scope.songs[$routeParams.id];
-      });
-    }]);
+  }]);

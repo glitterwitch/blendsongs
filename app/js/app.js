@@ -6,6 +6,5 @@ angular.module('myApp', ['myApp.filters', 'myApp.directives', 'myApp.controllers
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/songs', {templateUrl: 'partials/songs.html', controller: 'SongCtrl'});
     $routeProvider.when('/songs/add', {templateUrl: 'partials/song-add.html', controller: 'SongAddCtrl'});
-    $routeProvider.when('/songs/:id', {templateUrl: 'partials/song.html', controller: 'SongViewCtrl'});
     $routeProvider.otherwise({redirectTo: '/songs'});
   }]);
